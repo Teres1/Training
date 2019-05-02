@@ -5,14 +5,23 @@ import java.io.InputStreamReader;
 public class Homework {
     public static void main(String[] args) throws IOException {
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
-        int n=Integer.parseInt(rd.readLine());
-        int count=0;
-        for (int i = n-1; i >=1; i--) {
-            count++;
-            if(n%i==0){
-                break;
+        int n = Integer.parseInt(rd.readLine());
+        if (n == 1) {
+            System.out.println(0);
+        } else {
+            int count = 0;
+            int i = 0;
+            for (i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    count = i;
+                    break;
+                }
+            }
+            if (i > Math.sqrt(n)) {
+                System.out.print(n - 1);
+            } else {
+                System.out.print(n - n / count);
             }
         }
-        System.out.println(count);
     }
 }
