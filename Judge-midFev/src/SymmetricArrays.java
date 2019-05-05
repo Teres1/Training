@@ -6,22 +6,17 @@ public class SymmetricArrays {
     public static void main(String[] args) throws IOException {
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(rd.readLine());
-        for (int i = 0; i < n; i++) {
-            String[] input = rd.readLine().split(" ");
-            if (isSymetric(input)) {
-                System.out.println("Yes");
-            } else {
-                System.out.println("No");
-            }
-        }
+        int[]arr={1,2,3,2,1};
+        SymmetricArrays sa=new SymmetricArrays();
+        System.out.println(sa.isTelescopic(arr));
     }
 
-    static boolean isSymetric(String[] arr) {
-        if (arr.length == 1) {
+    boolean isTelescopic(int[] a) {
+        if (a.length == 1) {
             return true;
         } else {
-            for (int i = 0; i < (arr.length + 1) / 2; i++) {
-                if (arr[i].equals(arr[arr.length - 1 - i])) {
+            for (int i = 0; i < (a.length + 1) / 2; i++) {
+                if (a[i]==a[a.length - 1 - i]) {
                     return true;
                 } else {
                     return false;
